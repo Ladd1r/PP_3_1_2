@@ -20,7 +20,7 @@ public class UserController {
         return "all-users";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}/")
     public String showUser(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "show";
@@ -31,7 +31,7 @@ public class UserController {
         return "new";
     }
 
-    @PostMapping()
+    @PostMapping("/")
     public String create(@ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/";
